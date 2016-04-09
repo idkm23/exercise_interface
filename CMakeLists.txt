@@ -18,7 +18,9 @@ find_package(catkin REQUIRED COMPONENTS
     std_srvs 
     sensor_msgs 
     nao_interaction_msgs
-    rosbag) #nao_msgs) 
+    rosbag
+    myo_raw
+    ) #nao_msgs) 
 include_directories(${catkin_INCLUDE_DIRS})
 # Use this to define what the package will export (e.g. libs, headers).
 # Since the default here is to produce only a binary, we don't worry about

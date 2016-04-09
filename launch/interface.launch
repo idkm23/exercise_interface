@@ -1,0 +1,6 @@
+<launch>
+
+    <node name="exercise_interface" pkg="exercise_interface" type="exercise_interface" required="true" output="screen" cwd="node" />
+    <node name="controllable_myo_node" pkg="myo_raw" type="controllable_myo_node.py" required="true" output="screen" cwd="node" />
+
+</launch>
