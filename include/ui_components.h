@@ -111,7 +111,7 @@ public:
 
         trialLabel->adjustSize();
         trialBegin->setText("begin trial");
-        trialPractice->setText("no classifier");
+        trialPractice->setText("begin practice");
 
         extrasLabel->adjustSize();
         myoLaunch->setText("launch\nmyo");

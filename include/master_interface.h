@@ -22,7 +22,7 @@ protected:
 
 private:
   ros::NodeHandle n;
-  ros::Publisher myoLaunch_pub, myoCalibrate_pub, trialBegin_pub;
+  ros::Publisher myoLaunch_pub, myoCalibrate_pub, trialBegin_pub, exerciseMode_pub;
 
   UIComponents *uiComponents;
   QBasicTimer eventTimer;
@@ -32,6 +32,7 @@ private Q_SLOTS:
   void on_clearTraining_clicked();
 
   void on_trialBegin_clicked();
+  void on_trialPractice_clicked();
 
   void on_myoLaunch_clicked();
   void on_myoCalibrate_clicked();

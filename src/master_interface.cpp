@@ -9,6 +9,7 @@ MasterInterface::MasterInterface(QMainWindow* parent) : QMainWindow(parent), uiC
     trialBegin_pub = n.advertise<std_msgs::Int32>("/exercise/begin_trial", 100);
     myoLaunch_pub = n.advertise<std_msgs::Int32>("/myo/launch", 100);
     myoCalibrate_pub = n.advertise<std_msgs::Int32>("/myo/calibrate", 100);
+    exerciseMode_pub = n.advertise<std_msgs::Int32>("/exercise/mode", 100);
 }
 
 void MasterInterface::timerEvent(QTimerEvent* event) {
@@ -20,9 +21,11 @@ void MasterInterface::on_trainingRecord_clicked() {
     if(uiComponents->trainingRecord->text() != "stop training") {
         uiComponents->trainingRecord->setText("stop training");  
         uiComponents->trainingRecord->setDown(true);
+        //start recording a bag
     }  else {
         uiComponents->trainingRecord->setText("train");    
         uiComponents->trainingRecord->setDown(false);
+        //stop recording a bag
     }
 
     ROS_INFO("train");
@@ -36,6 +39,15 @@ void MasterInterface::on_trialBegin_clicked() {
     std_msgs::Int32 msg;
     msg.data = 0;
     trialBegin_pub.publish(msg);
+
+    exerciseMode_pub.publish(msg); 
+}
+
+void MasterInterface::on_trialPractice_clicked() {
+    std_msgs::Int32 msg;
+    msg.data = 1;
+
+    exerciseMode_pub.publish(msg);
 }
 
 void MasterInterface::on_myoLaunch_clicked() {
