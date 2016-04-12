@@ -10,6 +10,8 @@ MasterInterface::MasterInterface(QMainWindow* parent) : QMainWindow(parent), uiC
     myoLaunch_pub = n.advertise<std_msgs::Int32>("/myo/launch", 100);
     myoCalibrate_pub = n.advertise<std_msgs::Int32>("/myo/calibrate", 100);
     exerciseMode_pub = n.advertise<std_msgs::Int32>("/exercise/mode", 100);
+
+    setFixedSize(size());
 }
 
 void MasterInterface::timerEvent(QTimerEvent* event) {
@@ -21,22 +23,26 @@ void MasterInterface::on_trainingRecord_clicked() {
     if(uiComponents->trainingRecord->text() != "stop training") {
         uiComponents->trainingRecord->setText("stop training");  
         uiComponents->trainingRecord->setDown(true);
-        //start recording a bag
+
+        if(script_utils::getPIDbyName(script_utils::ROSBAG_PROCESS_NAME) != 0) {
+            script_utils::startBagRecording();
+        } else {
+            ROS_INFO("already recording");
+        }
+
     }  else {
         uiComponents->trainingRecord->setText("train");    
         uiComponents->trainingRecord->setDown(false);
-        //stop recording a bag
+        script_utils::killBagProcess();
     }
-
-    ROS_INFO("train");
 }
 
 void MasterInterface::on_trainingClear_clicked() {
-    ROS_INFO("clear");
+    script_utils::removeBags();
 }
 
 void MasterInterface::on_trainingDelete_clicked() {
-    ROS_INFO("delete");
+    script_utils::removeLastBag();
 }
 
 void MasterInterface::on_trialBegin_clicked() {

@@ -9,6 +9,7 @@
 #include <QWidget>
 #include <QTimer>
 #include "ui_components.h"
+#include "script_utils.h"
 
 class MasterInterface : public QMainWindow
 {
