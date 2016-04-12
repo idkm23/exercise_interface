@@ -31,8 +31,12 @@ void MasterInterface::on_trainingRecord_clicked() {
     ROS_INFO("train");
 }
 
-void MasterInterface::on_clearTraining_clicked() {
+void MasterInterface::on_trainingClear_clicked() {
     ROS_INFO("clear");
+}
+
+void MasterInterface::on_trainingDelete_clicked() {
+    ROS_INFO("delete");
 }
 
 void MasterInterface::on_trialBegin_clicked() {

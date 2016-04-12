@@ -29,7 +29,8 @@ private:
 
 private Q_SLOTS:  
   void on_trainingRecord_clicked();
-  void on_clearTraining_clicked();
+  void on_trainingDelete_clicked();
+  void on_trainingClear_clicked();
 
   void on_trialBegin_clicked();
   void on_trialPractice_clicked();

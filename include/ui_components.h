@@ -25,7 +25,8 @@ public:
 
     QLabel *trainingLabel, *trialLabel, *extrasLabel;
     
-    QPushButton *trainingRecord, *clearTraining, *trialBegin, *trialPractice,
+    QPushButton *trainingRecord, *trainingDelete, *trainingClear,
+                *trialBegin, *trialPractice,
                 *myoLaunch, *myoCalibrate, *naoLaunch;
     
     QComboBox *myoCount;
@@ -51,9 +52,13 @@ public:
         trainingRecord->setObjectName(QString("trainingRecord"));
         trainingRecord->setGeometry(QRect(COL1_X, COL1_Y, BWIDTH, BHEIGHT)); 
 
-        clearTraining = new QPushButton(MasterInterface);
-        clearTraining->setObjectName(QString("clearTraining"));
-        clearTraining->setGeometry(QRect(COL1_X, COL1_Y+BHEIGHT+BSPACING, BWIDTH, BHEIGHT)); 
+        trainingDelete = new QPushButton(MasterInterface);
+        trainingDelete->setObjectName(QString("trainingDelete"));
+        trainingDelete->setGeometry(QRect(COL1_X, COL1_Y+BHEIGHT+BSPACING, BWIDTH, BHEIGHT)); 
+
+        trainingClear = new QPushButton(MasterInterface);
+        trainingClear->setObjectName(QString("trainingClear"));
+        trainingClear->setGeometry(QRect(COL1_X, COL1_Y+2*(BHEIGHT+BSPACING), BWIDTH, BHEIGHT)); 
 
         /***************************************/
         
@@ -106,12 +111,13 @@ public:
         MasterInterface->setWindowTitle(QApplication::translate("MasterInterface", "MasterInterface", 0));
 
         trainingLabel->adjustSize(); 
-        trainingRecord->setText("train");
-        clearTraining->setText("clear");
+        trainingRecord->setText("train\nclassifier");
+        trainingDelete->setText("delete\nlast training");
+        trainingClear->setText("clear");
 
         trialLabel->adjustSize();
         trialBegin->setText("begin trial");
-        trialPractice->setText("begin practice");
+        trialPractice->setText("begin\npractice");
 
         extrasLabel->adjustSize();
         myoLaunch->setText("launch\nmyo");
