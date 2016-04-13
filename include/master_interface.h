@@ -1,6 +1,8 @@
 #ifndef MASTER_INTERFACE_H
 #define MASTER_INTERFACE_H
 
+#include <string>
+
 #include <ros/ros.h>
 #include <rosbag/bag.h>
 #include <std_msgs/Int32.h>
@@ -8,6 +10,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QTimer>
+
 #include "ui_components.h"
 #include "script_utils.h"
 

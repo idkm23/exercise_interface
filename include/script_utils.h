@@ -15,7 +15,7 @@ namespace script_utils {
         system(ROSBAG_RECORD_LOC.c_str());
     }
 
-    inline int getPIDbyName(std::string p_name) {
+    inline int getPIDbyName(const std::string p_name) {
         char buf[512];
 
         std::string s = "pgrep -f \'" + p_name + "\'";
