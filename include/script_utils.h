@@ -6,7 +6,7 @@
 
 namespace script_utils {
 
-    const std::string ROSBAG_PROCESS_NAME = "/opt/ros/indigo/lib/rosbag/record --buffsize 256 --chunksize 768 /myo/l/emg /myo/u/emg /myo/l/imu /myo/u/imu";
+    const std::string ROSBAG_PROCESS_NAME = "/lib/rosbag/record --buffsize 256 --chunksize 768 /myo/l/emg /myo/u/emg /myo/l/imu /myo/u/imu";
     const std::string ROSBAG_RECORD_LOC = "../../../src/exercise_interface/scripts/grabBag.sh &";
     const std::string ROSBAG_CLEAR_LOC = "../../../src/exercise_interface/scripts/removeBags.sh &";
     const std::string ROSBAG_REMOVELAST_LOC = "../../../src/exercise_interface/scripts/removeLastBag.sh &";
