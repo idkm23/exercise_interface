@@ -73,6 +73,23 @@ void MasterInterface::on_myoCalibrate_clicked() {
 }
 
 void MasterInterface::on_naoLaunch_clicked() {
+    std_msgs::Int32 msg;
+
+    if(uiComponents->naoLaunch->text() != "stop Nao") {
+        uiComponents->naoLaunch->setText("stop Nao");  
+        uiComponents->naoLaunch->setDown(true);
+        
+        msg.data = 3;
+        exerciseMode_pub.publish(msg);
+
+    }  else {
+        uiComponents->naoLaunch->setText("launch Nao");    
+        uiComponents->naoLaunch->setDown(false);
+        
+        msg.data = 4;
+        exerciseMode_pub.publish(msg);
+        
+    }
 }
 
 MasterInterface::~MasterInterface() {
