@@ -6,30 +6,9 @@
 
 void centerWindow(QMainWindow* w);
 
-#include <stdio.h>  /* defines FILENAME_MAX */
-#ifdef WINDOWS
-    #include <direct.h>
-    #define GetCurrentDir _getcwd
-#else
-    #include <unistd.h>
-    #define GetCurrentDir getcwd
- #endif
-
-
-
 int main(int argc, char **argv) {
 
 char cCurrentPath[FILENAME_MAX];
-     if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
-              {
-                       return errno;
-                            }
-
-     cCurrentPath[sizeof(cCurrentPath) - 1] = '\0'; /* not really required */
-
-     printf ("The current working directory is %s", cCurrentPath);
-
-
     ros::init(argc, argv, "exercise_interface");    
     QApplication app(argc, argv);
     MasterInterface mi; 
@@ -37,8 +16,6 @@ char cCurrentPath[FILENAME_MAX];
     mi.show();
 
     return app.exec();
-
-    return 0;
 }
 
 // Finds the active window and places w in the center of that screen

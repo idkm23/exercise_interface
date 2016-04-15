@@ -14,6 +14,7 @@
 
 QT_BEGIN_NAMESPACE
 
+// Handles the specifics of the UI layout of the interface
 class UIComponents {
 
 public:
@@ -25,11 +26,13 @@ public:
 
     QLabel *trainingLabel, *trialLabel, *extrasLabel;
     
-    QPushButton *trainingRecord, *trainingDelete, *trainingClear,
-                *trialBegin, *trialPractice,
-                *myoLaunch, *myoCalibrate, *naoLaunch;
+    QPushButton *trainingRecord, *trainingDelete, *trainingClear, // first column
+                *trialBegin, *trialPractice,                      // second column
+                *myoLaunch, *myoCalibrate, *naoLaunch;            // third column
     
-    QComboBox *myoCount;
+    QComboBox *myoCount; // the dropdown selector in the third column
+
+    static const int MYOCOUNT_WIDTH = 35;
 
     void setupUi(QWidget *MasterInterface) {
     
@@ -41,13 +44,15 @@ public:
 
         MasterInterface->resize(410, 260);
 
-        /***************************************/
+        /**First Column**/
         
+        // Uses HTML to manipulate text, used to make the titles of the columns
         trainingLabel = new QLabel(MasterInterface);
         trainingLabel->setText(QString("<h1><u>Training</u></h1>"));
         trainingLabel->setAlignment(Qt::AlignTop | Qt::AlignLeft);
         trainingLabel->setStyleSheet("QLabel { margin: 10px 0 0 10px }");
-
+        
+        // QRect defines the EXACT dimensions and location of the button
         trainingRecord = new QPushButton(MasterInterface);
         trainingRecord->setObjectName(QString("trainingRecord"));
         trainingRecord->setGeometry(QRect(COL1_X, COL1_Y, BWIDTH, BHEIGHT)); 
@@ -55,12 +60,12 @@ public:
         trainingDelete = new QPushButton(MasterInterface);
         trainingDelete->setObjectName(QString("trainingDelete"));
         trainingDelete->setGeometry(QRect(COL1_X, COL1_Y+BHEIGHT+BSPACING, BWIDTH, BHEIGHT)); 
-
+        
         trainingClear = new QPushButton(MasterInterface);
         trainingClear->setObjectName(QString("trainingClear"));
         trainingClear->setGeometry(QRect(COL1_X, COL1_Y+2*(BHEIGHT+BSPACING), BWIDTH, BHEIGHT)); 
 
-        /***************************************/
+        /**Second Column**/
         
         trialLabel = new QLabel(MasterInterface);
         trialLabel->setText(QString("<h1><u>Trial</u></h1>"));
@@ -75,7 +80,7 @@ public:
         trialPractice->setObjectName(QString("trialPractice"));
         trialPractice->setGeometry(QRect(COL2_X, COL2_Y+BHEIGHT+BSPACING, BWIDTH, BHEIGHT)); 
 
-        /***************************************/
+        /**Third Column**/
         
         extrasLabel = new QLabel(MasterInterface);
         extrasLabel->setText(QString("<h1><u>Extras</u></h1>"));
@@ -85,11 +90,11 @@ public:
         myoCount = new QComboBox(MasterInterface);
         myoCount->addItem(QString("2"));
         myoCount->addItem(QString("1"));
-        myoCount->setGeometry(QRect(COL3_X, COL3_Y, 35, BHEIGHT)); 
+        myoCount->setGeometry(QRect(COL3_X, COL3_Y, MYOCOUNT_WIDTH, BHEIGHT)); 
 
         myoLaunch = new QPushButton(MasterInterface);
         myoLaunch->setObjectName(QString("myoLaunch"));
-        myoLaunch->setGeometry(QRect(COL3_X + 35, COL3_Y, BWIDTH - 35, BHEIGHT)); 
+        myoLaunch->setGeometry(QRect(COL3_X + MYOCOUNT_WIDTH, COL3_Y, BWIDTH - MYOCOUNT_WIDTH, BHEIGHT)); 
 
         myoCalibrate = new QPushButton(MasterInterface);
         myoCalibrate->setObjectName(QString("myoCalibrate"));
@@ -99,14 +104,17 @@ public:
         naoLaunch->setObjectName(QString("naoLaunch"));
         naoLaunch->setGeometry(QRect(COL3_X, COL3_Y+2*(BHEIGHT+BSPACING), BWIDTH, BHEIGHT)); 
 
-        /***************************************/
+        /**Polish**/
         
-       // Polish it all off
         retranslateUi(MasterInterface);
+
+        // ! Connects the buttons to any listener functions in the MasterInterface object !
+        // Maps buttons ObjectName to a onClick function. 
+        // For example, on_myoLaunch_clicked() maps to the myoLaunch button which is declared above
         QMetaObject::connectSlotsByName(MasterInterface);
     }
 
-    // Name window and buttons    
+    // Name window and buttons to be more user friendly  
     void retranslateUi(QWidget *MasterInterface){
         MasterInterface->setWindowTitle(QApplication::translate("MasterInterface", "MasterInterface", 0));
 
@@ -125,6 +133,7 @@ public:
         naoLaunch->setText("launch Nao");
    }
 
+    // Because the character will be a number in ASCII format, if we subtract the '0' character, it will convert it to its number form
     int getMyoCount() {
         return myoCount->currentText().toStdString()[0] - '0';
     } 
