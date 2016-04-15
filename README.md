@@ -20,6 +20,6 @@ source devel/setup.bash
 ```
 
 Now your project is configured properly and you may launch the interface with:  
-```roslaunch exercise_interface interface.launch```
-*If you want to use the Nao in the interface you must do:*
+```roslaunch exercise_interface interface.launch```  
+**If you want to use the Nao in the interface you must do:**  
 ```NAO_IP=10.0.3.16 roslaunch exercise_interface interface.launch using_nao:=true```
