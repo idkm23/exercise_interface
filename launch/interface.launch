@@ -1,11 +1,12 @@
 <launch>
 
-    <arg name="NAO_IP" default="10.0.3.16" />
-
     <node name="exercise_interface" pkg="exercise_interface" type="exercise_interface" required="true" output="screen" cwd="node" />
     <node name="controllable_myo_node" pkg="myo_raw" type="controllable_myo_node.py" required="true" output="screen" cwd="node" />
     <node name="myo_nao" pkg="myo_nao" type="myo_nao" required="true" output="screen" cwd="node" />
 
-    <!-- <include file="$(find nao_bringup)/nao.launch" /> -->
-
+    <arg name="using_nao" default="false" />
+    
+    <group if="$(arg using_nao)">
+        <include file="$(find nao_bringup)/nao.launch" />
+    </group>
 </launch>
