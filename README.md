@@ -21,9 +21,11 @@ source devel/setup.bash
   
 Envirnonment setup
 ==  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo pip install scipy```  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo pip install sklearn```  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo adduser <username> dialout```  
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo pip install scipy  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo pip install sklearn  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo adduser <username> dialout 
+``` 
 
 
 Now your project is configured properly and you may launch the interface with:  
