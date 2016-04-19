@@ -19,12 +19,11 @@ catkin_make
 source devel/setup.bash
 ```
   
-Envirnonment setup
-==  
+###### Envirnonment setup  
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo pip install scipy  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo pip install sklearn  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```sudo adduser <username> dialout 
+sudo pip install scipy  
+sudo pip install sklearn  
+sudo adduser <username> dialout 
 ``` 
 
 
