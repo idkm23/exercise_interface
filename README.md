@@ -11,6 +11,7 @@ pip install --upgrade pip
 sudo pip install scipy  
 sudo pip install sklearn  
 sudo adduser <username> dialout 
+sudo apt-get install ros-indigo-qt-build 
 ``` 
 
 If you are completely new to ros, install rosindigo. Then, go to a directory you would like the project in and do:
