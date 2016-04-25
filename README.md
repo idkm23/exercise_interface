@@ -33,4 +33,8 @@ Now your project is configured properly and you may launch the interface with:
 ```roslaunch exercise_interface interface.launch``` 
    
 **If you want to use the Nao in the interface you must do:**  
-```NAO_IP=10.0.3.16 roslaunch exercise_interface interface.launch using_nao:=true```
+```NAO_IP=10.0.3.16 roslaunch exercise_interface interface.launch using_nao:=true```  
+  
+To install the nao sdk and other basics see this tutorial:
+http://wiki.ros.org/nao/Tutorials/Installation  
+You will need to login and download something from here: https://community.aldebaran.com/ so contact Momotaz for this information.
