@@ -17,7 +17,6 @@ find_package(catkin REQUIRED COMPONENTS
     std_msgs 
     std_srvs 
     sensor_msgs 
-    nao_interaction_msgs
     rosbag
     myo_raw
     ) #nao_msgs) 
