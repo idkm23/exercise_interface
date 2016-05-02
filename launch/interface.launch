@@ -3,6 +3,12 @@
     <node name="exercise_interface" pkg="exercise_interface" type="exercise_interface" required="true" output="screen" cwd="node" />
     <node name="controllable_myo_node" pkg="myo_raw" type="controllable_myo_node.py" required="true" output="screen" cwd="node" />
     <node name="prompt2" pkg="myo_raw" type="prompt2.py" required="true" output="screen" cwd="node" />
+    
+    <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen" required="true">
+        <param name="lm" value="$(find exercise_interface)/data/1614.lm"/>
+        <param name="dict" value="$(find exercise_interface)/data/1614.dic"/>
+    </node>
+    <node name="state_listener" pkg="exercise_interface" type="state_listener" required="true"/>
 
     <arg name="using_nao" default="false" />
     

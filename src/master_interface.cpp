@@ -12,7 +12,7 @@ MasterInterface::MasterInterface(QMainWindow* parent) : QMainWindow(parent), uiC
     myoLaunch_pub = n.advertise<std_msgs::Int32>("/myo/launch", 100);
     myoCalibrate_pub = n.advertise<std_msgs::Int32>("/myo/calibrate", 100);
     exerciseMode_pub = n.advertise<std_msgs::Int32>("/exercise/mode", 100);
-
+    
     // unallows the user to change the size of the window
     setFixedSize(size());
 }

@@ -8,7 +8,6 @@ void centerWindow(QMainWindow* w);
 
 int main(int argc, char **argv) {
 
-char cCurrentPath[FILENAME_MAX];
     ros::init(argc, argv, "exercise_interface");    
     QApplication app(argc, argv);
     MasterInterface mi; 

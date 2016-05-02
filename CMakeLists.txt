@@ -52,7 +52,7 @@ QT4_WRAP_CPP(QT_MOC_HPP ${QT_MOC})
 # Sources
 ##############################################################################
 
-file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS src/*.cpp)
+file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS src/master_interface.cpp src/main.cpp)
 
 ##############################################################################
 # Binaries
@@ -62,3 +62,6 @@ add_executable(exercise_interface ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_H
 target_link_libraries(exercise_interface ${QT_LIBRARIES} ${catkin_LIBRARIES})
 install(TARGETS exercise_interface RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
+add_executable(state_listener src/state_listener_main.cpp)
+add_dependencies(state_listener ${catkin_EXPORTED_TARGETS})
+target_link_libraries(state_listener ${catkin_LIBRARIES})
