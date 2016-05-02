@@ -42,6 +42,7 @@ private Q_SLOTS:
 
   void on_trialBegin_clicked();
   void on_trialPractice_clicked();
+  void on_trialSandbox_clicked();
 
   void on_myoLaunch_clicked();
   void on_myoCalibrate_clicked();

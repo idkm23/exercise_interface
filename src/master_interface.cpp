@@ -65,6 +65,14 @@ void MasterInterface::on_trialPractice_clicked() {
     exerciseMode_pub.publish(msg);
 }
 
+// Signals to enter the practice mode with NO EVALUATION
+void MasterInterface::on_trialSandbox_clicked() {
+    std_msgs::Int32 msg;
+    msg.data = 2;
+
+    exerciseMode_pub.publish(msg);
+}
+
 // Signals to launch 1 or 2 myos depending on the value stored in the combo box
 void MasterInterface::on_myoLaunch_clicked() {
     std_msgs::Int32 msg;
