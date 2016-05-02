@@ -27,7 +27,7 @@ public:
     QLabel *trainingLabel, *trialLabel, *extrasLabel;
     
     QPushButton *trainingRecord, *trainingDelete, *trainingClear, // first column
-                *trialBegin, *trialPractice,                      // second column
+                *trialBegin, *trialPractice, *trialSandbox,       // second column
                 *myoLaunch, *myoCalibrate, *naoLaunch;            // third column
     
     QComboBox *myoCount; // the dropdown selector in the third column
@@ -80,6 +80,10 @@ public:
         trialPractice->setObjectName(QString("trialPractice"));
         trialPractice->setGeometry(QRect(COL2_X, COL2_Y+BHEIGHT+BSPACING, BWIDTH, BHEIGHT)); 
 
+        trialSandbox = new QPushButton(MasterInterface);
+        trialSandbox->setObjectName(QString("trialSandbox"));
+        trialSandbox->setGeometry(QRect(COL2_X, COL2_Y+2*(BHEIGHT+BSPACING), BWIDTH, BHEIGHT)); 
+
         /**Third Column**/
         
         extrasLabel = new QLabel(MasterInterface);
@@ -126,6 +130,7 @@ public:
         trialLabel->adjustSize();
         trialBegin->setText("begin trial");
         trialPractice->setText("begin\npractice");
+        trialSandbox->setText("no evaluation");
 
         extrasLabel->adjustSize();
         myoLaunch->setText("launch\nmyo");
