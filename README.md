@@ -42,7 +42,4 @@ To install the nao sdk and other basics see this tutorial:
 http://wiki.ros.org/nao/Tutorials/Installation  
 You will need to login and download something from here: https://community.aldebaran.com/ so contact Momotaz for this information.
 Also install this repo, as the naoqi has changed so we have preserved our version:  
-```git clone https://github.com/idkm23/naoqi.git```  
-  
-APK of the app (5/10/2016)  
-https://drive.google.com/open?id=0B-AlPlQGo15zdVhhVFRGUkVtVnM
+```git clone https://github.com/idkm23/naoqi.git```
